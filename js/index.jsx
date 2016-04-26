@@ -24,7 +24,7 @@ export default class Index extends React.Component {
 						<div className="m-newlist">
 							<ul>
 								<li>
-									<Link to="/article">
+									<Link to="/article/4">
 										<span className="avatar">
 											<img src="http://image.yy.com/ojiastoreimage/6db3c581d951a909539a92f2883f2166.jpg" alt="减肥过程中怎么吃？如何控制饮食" />
 										</span>
@@ -34,7 +34,7 @@ export default class Index extends React.Component {
 									</Link>
 								</li>
 								<li>
-									<Link to="/article/2">
+									<Link to="/article/20">
 										<span className="avatar">
 											<img src="http://image.yy.com/ojiastoreimage/6db3c581d951a909539a92f2883f2166.jpg" alt="减肥过程中怎么吃？如何控制饮食" />
 										</span>

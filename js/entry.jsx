@@ -12,7 +12,7 @@ import NotFound from './404';
 let root = render((
     <Router  history={hashHistory} >
         <Route path="/"  component={Index} />  
-        <Route path="article" component={Article} />
+        <Route path="article/:articleId" component={Article} />
         <Route path="*" component={NotFound} />
     </Router>
   

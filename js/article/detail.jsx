@@ -5,10 +5,18 @@ import Foot from './../common/foot';
 
 let data = {
 	article : {
-		title : '简单做HIIT05 腿、手、腹部细节强化',
-		pub_date : '2016-04-25',
-		author : 'hi运动老王',
-		content : '<p>今天这种HIIT动作的三个动作，简单的就上中下三个部位，针对腿、手臂和腹肌来做，强化细节的动作，来甩掉脂肪，增加肌肉。</p><p><img src="http://image.yy.com/ojiastoreimage/b54d4899d9313f7b859674acdc895890.jpg" alt="简单做HIIT 男女通用超速减脂大法 - 图片2"/></p>'
+		"4" : {
+			title : '简单做HIIT05 腿、手、腹部细节强化',
+			pub_date : '2016-04-25',
+			author : 'hi运动老王',
+			content : '<p>今天这种HIIT动作的三个动作，简单的就上中下三个部位，针对腿、手臂和腹肌来做，强化细节的动作，来甩掉脂肪，增加肌肉。</p><p><img src="http://image.yy.com/ojiastoreimage/b54d4899d9313f7b859674acdc895890.jpg" alt="简单做HIIT 男女通用超速减脂大法 - 图片2"/></p>'
+		},
+		"20" : {
+			title : '简单做HIIT05 腿',
+			pub_date : '2016-04-21',
+			author : 'hi运动老王',
+			content : '<p>今天这种HIIT动作的三个动作，简单的就上中下三个部位，针对腿、手臂和腹肌来做，强化细节的动作，来甩掉脂肪，增加肌肉。</p>'
+		}
 	},
 	hot : [{
 		url : 'http://m.hiyd.com/jianshengyinshi/528',
@@ -29,6 +37,8 @@ let data = {
 	}]
 }
 
+console.log(data);
+
 
 export default class Article extends React.Component {
 	constructor(props, context) {
@@ -39,15 +49,16 @@ export default class Article extends React.Component {
 		};
 	}
 	
-	componentData() {
+	componentData(id) {
 		this.setState({
-			article : data.article,
+			article : data.article[id],
 			hot : data.hot
 		});
 	}
 	
 	componentWillMount() {
-		this.componentData();
+		let articleId = this.props.params.articleId;
+		this.componentData(articleId);
 	}
 	
 	render() {
