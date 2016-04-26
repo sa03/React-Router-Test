@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import {Route, Router, hashHistory, DefaultRoute, run} from 'react-router';
-// import asyncLoader from './async-loader';
 //import auth from './common/auth'
 
 import Index from './index';
