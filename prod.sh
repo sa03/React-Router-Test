@@ -1,1 +1,0 @@
-webpack -p --progress --colors
