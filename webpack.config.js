@@ -5,12 +5,12 @@ var path = require('path');
 
 
 module.exports = {
-    devtool: 'cheap-module-eval-source-map',
     entry: [
-      "./js/entry.jsx"
+        "./js/entry.jsx"
     ],
     output: {
-        path: path.join(__dirname, '/build'),
+        path: 'build',
+        publicPath: 'build/',
         filename: "bundle.js"
     },
     resolve: {
@@ -21,25 +21,33 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: 'style!css'
+            }, {
+                test: /\.scss$/,
+                loader: 'style!css!sass'
             },
             {
-              test: /\.(png|jpg)$/,
-              loader: 'url?limit=25000'
-          },
-           {
-               test: /\.jsx$/,
-               exclude: /node_modules/,
-               loader: 'babel-loader?stage=0'
-           },
-           {
-               test: /\.js$/,
-               exclude: /node_modules/,
-               loader: 'babel-loader?stage=0'
-           }  
-         
+                test: /\.(png|jpg)$/,
+                loader: 'url?limit=8192'
+            },
+            {
+                test: /\.jsx$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader?stage=0'
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader?stage=0'
+            }
+
         ]
     },
     plugins: [
-    //    new WebpackMd5Hash()
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify("production")
+            }
+        })
     ]
+
 };
