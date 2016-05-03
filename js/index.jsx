@@ -1,6 +1,7 @@
 import React from 'react';
 import {hashHistory} from 'react-router';
 import Loading from 'react-loading';
+import Config from './config';
 
 export default class Index extends React.Component {
 	constructor(props, context) {
@@ -29,8 +30,11 @@ export default class Index extends React.Component {
 		if(!mobileReg) {
 			this.showError("请输入正确的手机号码！");
 		} else {
-			let apiUrl = "/activity/sendVCode?mobile=" + mobile; 
-			$.post(apiUrl, ret => {
+			let apiUrl = `${Config.apiUrl}/activity/sendVCode`;
+			let postData = {
+				mobile : mobile
+			}
+			$.post(apiUrl, postData, ret => {
 				if(ret.code == 0) {
 					this.setState({
 						isSend : true
@@ -79,13 +83,17 @@ export default class Index extends React.Component {
 			this.setState({
 				isSend2 : true
 			});
-			let apiUrl = "/activity/inbodydata?mobile=" + mobile + "&vcode=" + vcode;
-			$.post(apiUrl, ret => {
+			let apiUrl = `${Config.apiUrl}/activity/InbodyData`;
+			let postData = {
+				mobile : mobile,
+				vcode : vcode
+			}			
+			$.post(apiUrl, postData, ret => {
 				this.setState({
 					isSend2 : false
 				});
 				if(ret.code == 0) {
-					hashHistory.push('/table/'+ mobile + '/' + vcode);
+					hashHistory.push(`/table/${mobile}/${vcode}`);
 				} else {
 					this.showError(ret.msg);
 				}
