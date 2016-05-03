@@ -1,0 +1,8 @@
+*~
+.svn
+.DS_Store
+node_modules
+.idea
+.svn
+*.svn
+*.vscode

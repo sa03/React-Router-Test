@@ -1,4 +1,5 @@
 import React from 'react';
+import Config from './config';
 
 export default class Table extends React.Component {
 	constructor(props, context) {
@@ -31,10 +32,13 @@ export default class Table extends React.Component {
 	}
 	
 	_updateState() {
-		let mobile = this.props.routeParams.mobile;
-		let vcode = this.props.routeParams.vcode;
-		let apiUrl = "/activity/InbodyData?mobile=" + mobile + "&vcode=" + vcode;
-		$.post(apiUrl, (ret)=>{
+		let apiUrl = `${Config.apiUrl}/activity/InbodyData`;
+		let postData = {
+			mobile : this.props.routeParams.mobile,
+			vcode : this.props.routeParams.vcode
+		}
+		
+		$.post(apiUrl, postData, (ret)=>{
 			if(ret.code == 0) {
 				this.setState({data: ret.data});
 			} else {
@@ -78,8 +82,8 @@ export default class Table extends React.Component {
 								</tr>
 								<tr>
 									<td style={{width: "20%"}}>{data.name ? data.name : ""}</td>
-									<td style={{width: "15%"}}>{data.height ? data.height + "cm" : ""}</td>
-									<td style={{width: "10%"}}>{data.age ? new Number(data.age).toFixed(0) + "岁" : ""}</td>
+									<td style={{width: "15%"}}>{data.height ? `${data.height}cm` : ""}</td>
+									<td style={{width: "10%"}}>{data.age ? `${data.age.toFixed(0)}岁` : ""}</td>
 									<td style={{width: "10%"}}>{data.gender ? data.gender == "F" ? "女" : "男" : ""}</td>
 									<td style={{width: "25%"}}>{data.test_date}</td>
 								</tr>
