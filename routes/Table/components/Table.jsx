@@ -1,5 +1,4 @@
 import React from 'react';
-import Config from './config';
 
 export default class Table extends React.Component {
 	constructor(props, context) {

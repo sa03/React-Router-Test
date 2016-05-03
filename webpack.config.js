@@ -6,7 +6,7 @@ var path = require('path');
 
 module.exports = {
     entry: [
-        "./js/entry.jsx"
+        "./app.jsx"
     ],
     output: {
         path: 'build',

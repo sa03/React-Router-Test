@@ -1,8 +1,7 @@
 import React from 'react';
 import {hashHistory} from 'react-router';
 import Loading from 'react-loading';
-import Config from './config';
-
+    
 export default class Index extends React.Component {
 	constructor(props, context) {
 		super(props, context)
