@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --progress --colors",
     "debug": "webpack -w --progress --colors",
-    "release": "webpack -p --progress --colors"
+    "release": "webpack -p --progress --colors",
+    "test": "node server.js"
   },
   "repository": {
     "type": "git",

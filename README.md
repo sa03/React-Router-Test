@@ -1,6 +1,6 @@
-# Solution for Webpack React ReactRouter
+# Solution for Webpack, React, React Router
 
-A Solution for WebApp which is base on Webpack React React Router
+A Solution for WebApp base on Webpack, React, React Router
 
 ## Dependencies
 
