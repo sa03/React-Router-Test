@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
-    "debug": "webpack -w --progress --colors",
-    "release": "webpack -p --progress --colors",
-    "test": "node server.js"
+    "start": "node project/server.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +26,7 @@
     "express-urlrewrite": "^1.2.0",
     "file-loader": "^0.8.5",
     "history": "^2.1.0",
+    "jquery": "^2.2.3",
     "node-sass": "^3.6.0",
     "pubsub-js": "^1.5.3",
     "react": "^15.0.0",

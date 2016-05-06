@@ -3,6 +3,8 @@ var rewrite = require('express-urlrewrite')
 var webpack = require('webpack')
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var WebpackConfig = require('./webpack.config')
+var fs = require('fs')
+var path = require('path')
 
 var app = express()
 
@@ -14,8 +16,6 @@ app.use(webpackDevMiddleware(webpack(WebpackConfig), {
     }
 }))
 
-var fs = require('fs')
-var path = require('path')
 
 fs.readdirSync(__dirname).forEach(function (file) {
     if (fs.statSync(path.join(__dirname, file)).isDirectory())

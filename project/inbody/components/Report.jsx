@@ -1,8 +1,9 @@
 import React from 'react';
-import {hashHistory} from 'react-router';
+import {browserHistory, Link} from 'react-router';
+import $ from 'jquery';
 import Loading from 'react-loading';
     
-export default class Index extends React.Component {
+export default class Report extends React.Component {
 	constructor(props, context) {
 		super(props, context)
 		this.state = {
@@ -92,7 +93,7 @@ export default class Index extends React.Component {
 					isSend2 : false
 				});
 				if(ret.code == 0) {
-					hashHistory.push(`/table/${mobile}/${vcode}`);
+					browserHistory.push(`/table/${mobile}/${vcode}`);
 				} else {
 					this.showError(ret.msg);
 				}
@@ -104,42 +105,40 @@ export default class Index extends React.Component {
 	
 	render() {
 		return (
-			<div className="m-container">
-				<div className="page-form">
-					<div className="form-hd">
-						<h1>HI运动体侧查询</h1>
-						{(() => {
-							if(this.state.error) {
-								return <p><i/>{this.state.error}</p>
-							}
-						})()}
+			<div className="page-form">
+				<div className="form-hd">
+					<h1>HI运动体侧查询</h1>
+					{(() => {
+						if(this.state.error) {
+							return <p><i/>{this.state.error}</p>
+						}
+					})()}
+				</div>
+				<div className="form-bd">
+					<div className="form-row">
+						<i className="icon-phone"></i>
+						<input type="tel" name="mobile" ref="mobile" placeholder="Hi,请输入手机号" disabled={this.state.isSend ? "disabled" : ""} onInput={this.checkInput.bind(this)}/>
 					</div>
-					<div className="form-bd">
-						<div className="form-row">
-							<i className="icon-phone"></i>
-							<input type="tel" name="mobile" ref="mobile" placeholder="Hi,请输入手机号" disabled={this.state.isSend ? "disabled" : ""} onInput={this.checkInput.bind(this)}/>
-						</div>
-						<div className="form-row">
-							<i className="icon-code"></i>
-							<input type="tel" name="vcode" ref="vcode" placeholder="请输入手机验证码" maxLength="12" onInput={this.checkInput.bind(this)}/>
-							{(() => {
-								if(!this.state.isSend) {
-									return <span onClick={this.sendVCode.bind(this)}>获取验证码</span>
-								} else {
-									return <span>{this.state.count}秒</span>	
-								}
-							})()}
-						</div>
-					</div>
-					<div className="form-ft">
+					<div className="form-row">
+						<i className="icon-code"></i>
+						<input type="tel" name="vcode" ref="vcode" placeholder="请输入手机验证码" maxLength="12" onInput={this.checkInput.bind(this)}/>
 						{(() => {
-							if(!this.state.isSend2) {
-								return <span className="btn-check" onClick={this.handleSubmit.bind(this)}>查看测试报告</span>
+							if(!this.state.isSend) {
+								return <span onClick={this.sendVCode.bind(this)}>获取验证码</span>
 							} else {
-								return <span className="btn-check"><Loading type='bubbles' color='#6173D4' /></span>	
+								return <span>{this.state.count}秒</span>	
 							}
 						})()}
 					</div>
+				</div>
+				<div className="form-ft">
+					{(() => {
+						if(!this.state.isSend2) {
+							return <span className="btn-check" onClick={this.handleSubmit.bind(this)}>查看测试报告</span>
+						} else {
+							return <span className="btn-check"><Loading type='bubbles' color='#6173D4' /></span>	
+						}
+					})()}
 				</div>
 			</div>
 		);

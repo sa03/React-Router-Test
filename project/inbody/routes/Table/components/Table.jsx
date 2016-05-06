@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 export default class Table extends React.Component {
 	constructor(props, context) {
@@ -63,15 +64,15 @@ export default class Table extends React.Component {
 	render() {
 		var data = this.state.data;
 		return (
-			<div className="m-container">
-				<div className="page-table">
-					<div className="table-title"></div>
-					<section>
-						<div className="sec-hd">
-							<h3>个人信息</h3>
-						</div>
-						<div className="sec-bd">
-							<table className="sec-table">
+			<div className="page-table">
+				<div className="table-title"></div>
+				<section>
+					<div className="sec-hd">
+						<h3>个人信息</h3>
+					</div>
+					<div className="sec-bd">
+						<table className="sec-table">
+							<tbody>
 								<tr>
 									<th>姓名</th>
 									<th>身高</th>
@@ -86,16 +87,18 @@ export default class Table extends React.Component {
 									<td style={{width: "10%"}}>{data.gender ? data.gender == "F" ? "女" : "男" : ""}</td>
 									<td style={{width: "25%"}}>{data.test_date}</td>
 								</tr>
-							</table>
-						</div>
-					</section>
-					
-					<section>
-						<div className="sec-hd">
-							<h3>人体成分分析</h3>
-						</div>
-						<div className="sec-bd">
-							<table className="sec-table">
+							</tbody>
+						</table>
+					</div>
+				</section>
+				
+				<section>
+					<div className="sec-hd">
+						<h3>人体成分分析</h3>
+					</div>
+					<div className="sec-bd">
+						<table className="sec-table">
+							<tbody>
 								<tr>
 									<th>人体项指数</th>
 									<th>您的数值</th>
@@ -136,16 +139,18 @@ export default class Table extends React.Component {
 									</td>
 									<td>({data.ll_weight} ~ {data.ul_weight})</td>
 								</tr>
-							</table>
-						</div>
-					</section>
-					
-					<section>
-						<div className="sec-hd">
-							<h3>肌肉脂肪分析</h3>
-						</div>
-						<div className="sec-bd">
-							<table className="sec-table">
+							</tbody>
+						</table>
+					</div>
+				</section>
+				
+				<section>
+					<div className="sec-hd">
+						<h3>肌肉脂肪分析</h3>
+					</div>
+					<div className="sec-bd">
+						<table className="sec-table">
+							<tbody>
 								<tr>
 									<th>人体项指数</th>
 									<th>您的数值</th>
@@ -172,16 +177,18 @@ export default class Table extends React.Component {
 									</td>
 									<td>({data.ll_bfm} ~ {data.ul_bfm})</td>
 								</tr>
-							</table>
-						</div>
-					</section>
-					
-					<section>
-						<div className="sec-hd">
-							<h3>肥胖分析</h3>
-						</div>
-						<div className="sec-bd">
-							<table className="sec-table">
+							</tbody>
+						</table>
+					</div>
+				</section>
+				
+				<section>
+					<div className="sec-hd">
+						<h3>肥胖分析</h3>
+					</div>
+					<div className="sec-bd">
+						<table className="sec-table">
+							<tbody>
 								<tr>
 									<th>人体项指数</th>
 									<th>您的数值</th>
@@ -201,86 +208,88 @@ export default class Table extends React.Component {
 									</td>
 									<td>(10% ~ 20%)</td>
 								</tr>
-							</table>
+							</tbody>
+						</table>
+					</div>
+				</section>
+				
+				<section className="no-padding">
+					<div className="sec-hd">
+						<h3>肌肉均衡</h3>
+					</div>
+					<div className="sec-bd">
+						<div className="mod-body">
+							<div className="left-top">
+								<p>{data.ffm_l_arm + "kg"}</p>
+								<p>{data.ffmp_l_arm + "%"}</p>
+							</div>
+							<div className="left-bottom">
+								<p>{data.ffm_l_leg + "kg"}</p>
+								<p>{data.ffmp_l_leg + "%"}</p>
+							</div>
+							<div className="right-top">
+								<p>{data.ffm_r_arm + "kg"}</p>
+								<p>{data.ffmp_r_arm + "%"}</p>
+							</div>
+							<div className="right-bottom">
+								<p>{data.ffm_r_leg + "kg"}</p>
+								<p>{data.ffmp_r_leg + "%"}</p>
+							</div>
+							<div className="body-center">
+								<span>{data.ffm_trunk + "kg"}</span>
+								<span>{data.ffmp_trunk + "%"}</span>
+							</div>
 						</div>
-					</section>
+					</div>
+				</section>
+				
+				<section className="no-padding">
+					<div className="sec-hd">
+						<h3>节段脂肪分析</h3>
+					</div>
+					<div className="sec-bd">
+						<div className="mod-body">
+							<div className="left-top">
+								<p>{data.bfm_l_arm + "kg"}</p>
+								<p>{data.pbf_l_arm + "%"}</p>
+							</div>
+							<div className="left-bottom">
+								<p>{data.bfm_l_leg + "kg"}</p>
+								<p>{data.pbf_l_leg + "%"}</p>
+							</div>
+							<div className="right-top">
+								<p>{data.bfm_r_arm + "kg"}</p>
+								<p>{data.pbf_r_arm + "%"}</p>
+							</div>
+							<div className="right-bottom">
+								<p>{data.bfm_r_leg + "kg"}</p>
+								<p>{data.pbf_r_leg + "%"}</p>
+							</div>
+							<div className="body-center">
+								<span>{data.bfm_trunk + "kg"}</span>
+								<span>{data.pbf_trunk + "%"}</span>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<div className="mod-box">
+					<h4>评分</h4>
 					
-					<section className="no-padding">
-						<div className="sec-hd">
-							<h3>肌肉均衡</h3>
+					<div className="mod-score">
+						<div className="pie_left">
+							<div className="left" style={{transform: 'rotate(' + this.getScoreP(data.growth_score).left + 'deg)'}} />
 						</div>
-						<div className="sec-bd">
-							<div className="mod-body">
-								<div className="left-top">
-									<p>{data.ffm_l_arm + "kg"}</p>
-									<p>{data.ffmp_l_arm + "%"}</p>
-								</div>
-								<div className="left-bottom">
-									<p>{data.ffm_l_leg + "kg"}</p>
-									<p>{data.ffmp_l_leg + "%"}</p>
-								</div>
-								<div className="right-top">
-									<p>{data.ffm_r_arm + "kg"}</p>
-									<p>{data.ffmp_r_arm + "%"}</p>
-								</div>
-								<div className="right-bottom">
-									<p>{data.ffm_r_leg + "kg"}</p>
-									<p>{data.ffmp_r_leg + "%"}</p>
-								</div>
-								<div className="body-center">
-									<span>{data.ffm_trunk + "kg"}</span>
-									<span>{data.ffmp_trunk + "%"}</span>
-								</div>
-							</div>
+						<div className="pie_right">
+							<div className="right" style={{transform: 'rotate(' + this.getScoreP(data.growth_score).right + 'deg)'}}/>
 						</div>
-					</section>
+						<div className="mask"></div>
+						<em className="tag-num">{data.growth_score}</em>
+					</div>
+					<p><i>*</i>总得分反应身体成分的评估值 肌肉发达的人可能超过100分</p>
 					
-					<section className="no-padding">
-						<div className="sec-hd">
-							<h3>节段脂肪分析</h3>
-						</div>
-						<div className="sec-bd">
-							<div className="mod-body">
-								<div className="left-top">
-									<p>{data.bfm_l_arm + "kg"}</p>
-									<p>{data.pbf_l_arm + "%"}</p>
-								</div>
-								<div className="left-bottom">
-									<p>{data.bfm_l_leg + "kg"}</p>
-									<p>{data.pbf_l_leg + "%"}</p>
-								</div>
-								<div className="right-top">
-									<p>{data.bfm_r_arm + "kg"}</p>
-									<p>{data.pbf_r_arm + "%"}</p>
-								</div>
-								<div className="right-bottom">
-									<p>{data.bfm_r_leg + "kg"}</p>
-									<p>{data.pbf_r_leg + "%"}</p>
-								</div>
-								<div className="body-center">
-									<span>{data.bfm_trunk + "kg"}</span>
-									<span>{data.pbf_trunk + "%"}</span>
-								</div>
-							</div>
-						</div>
-					</section>
-					
-					<div className="mod-box">
-						<h4>评分</h4>
-						
-						<div className="mod-score">
-							<div className="pie_left">
-								<div className="left" style={{transform: 'rotate(' + this.getScoreP(data.growth_score).left + 'deg)'}} />
-							</div>
-							<div className="pie_right">
-								<div className="right" style={{transform: 'rotate(' + this.getScoreP(data.growth_score).right + 'deg)'}}/>
-							</div>
-							<div className="mask"></div>
-							<em className="tag-num">{data.growth_score}</em>
-						</div>
-						<p><i>*</i>总得分反应身体成分的评估值 肌肉发达的人可能超过100分</p>
-						
-						<table className="mod-table">
+					<table className="mod-table">
+						<tbody>
 							<tr>
 								<th colSpan="2">体重控制</th>
 							</tr>
@@ -300,9 +309,11 @@ export default class Table extends React.Component {
 								<td>肌肉控制</td>
 								<td>{data.ffm_control >= 0 ? "+" + data.ffm_control : ""}kg</td>
 							</tr>
-						</table>
-						
-						<table className="mod-table">
+						</tbody>
+					</table>
+					
+					<table className="mod-table">
+						<tbody>
 							<tr>
 								<th colSpan="2">研究项目</th>
 							</tr>
@@ -322,11 +333,11 @@ export default class Table extends React.Component {
 								<td>内脏脂肪等级</td>
 								<td>{data.vfl}（1~9）</td>
 							</tr>
-						</table>
-					</div>
-					
+						</tbody>
+					</table>
 				</div>
-			</div>	
+				
+			</div>
 		);
 	}
 }
